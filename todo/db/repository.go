@@ -19,7 +19,7 @@ func SetRepository(ctx context.Context, repository Repository) context.Context {
 }
 
 func Close(ctx context.Context) {
-    getRepository(ctx).close()
+    getRepository(ctx).Close()
 }
 
 func Insert(ctx context.Context, todo *schema.Todo) (int, error) {
