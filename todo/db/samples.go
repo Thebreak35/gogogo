@@ -21,21 +21,21 @@ func (s *Sample) Delete(id int) error {
 func (s *Sample) GetAll() ([]schema.Todo, error) {
     todoList := []schema.Todo {
         {
-            ID: 1,
-            Title: "Do dishes",
-            Note: "",
+            ID:      1,
+            Title:   "Do dishes",
+            Note:    "",
             DueDate: time.Date(2000, 1, 1, 0, 0, 0, 0, time.UTC),
         },
         {
-            ID: 2,
-            Title: "Do homework",
-            Note: "",
+            ID:      2,
+            Title:   "Do homework",
+            Note:    "",
             DueDate: time.Date(2000, 1, 1, 0, 0, 0, 0, time.UTC),
         },
         {
-            ID: 2,
-            Title: "Twitter",
-            Note: "",
+            ID:      2,
+            Title:   "Twitter",
+            Note:    "",
             DueDate: time.Date(2000, 1, 1, 0, 0, 0, 0, time.UTC),
         },
     }

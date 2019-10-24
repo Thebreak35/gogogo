@@ -8,7 +8,7 @@ import (
 
 func SetUpRouting() *http.ServeMux {
     todoHandler := &todoHandler {
-        samples: &db.Sample(),
+        samples: &db.Sample{},
     }
 
     mux := http.NewServeMux()

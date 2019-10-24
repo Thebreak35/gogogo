@@ -12,7 +12,7 @@ type todoHandler struct {
     samples *db.Sample
 }
 
-func (handler *todoHandler) GetSamples(w http.ResponseWriteer, r *http.Request) {
+func (handler *todoHandler) GetSamples(w http.ResponseWriter, r *http.Request) {
     ctx := db.SetRepository(r.Context(), handler.samples)
 
     todoList, err := service.GetAll(ctx)
@@ -24,9 +24,16 @@ func (handler *todoHandler) GetSamples(w http.ResponseWriteer, r *http.Request) 
     responseOk(w, todoList)
 }
 
-func responseOk(w http.ResponseWriteer, code int, message string) {
+func responseOk(w http.ResponseWriter, body interface{}) {
+    w.WriteHeader(http.StatusOK)
+    w.Header().Set("Content-Type", "application/json")
+
+    json.NewEncoder(w).Encode(body)
+}
+
+func responseError(w http.ResponseWriter, code int, message string) {
     w.WriteHeader(code)
-    w.Header().set("Content-Type", "application/json")
+    w.Header().Set("Content-Type", "application/json")
 
     body := map[string]string {
         "error": message,
